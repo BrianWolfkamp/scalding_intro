@@ -1,0 +1,16 @@
+<!doctype html>
+<title> More like this handler </title>
+<form>
+ <input name="search" value="{{ searchedfor }}"/>
+<form>
+{% if results %}
+ <h1> the results </h1>
+ <table border="1" >
+  <tr><td>[[id]] </td><td> [[ movie-1 ]] </td><td> [[ movie-2 ]] </td><td>   [[ correlation ]] </td></tr>
+ {% for row in results %}
+ <tr><td> {{ movies[row[0]-1][0]  }} </td><td>  {{ movies[row[0]-1][1] }} </td><td>   {{ movies[row[1]-1][1] }} </td><td> {{ row[2]  }}  </td></tr>
+ {% endfor %}
+ </table>
+{% else %}
+ <h1> we need results</h1>
+{% endif %}
